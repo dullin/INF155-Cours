@@ -1,4 +1,4 @@
-% INF155 - Structures de contrôles
+% INF155 - Structures de contrôle
 % Hugo Leblanc
 % Cours 2
 
@@ -32,15 +32,15 @@ if (x > 4) {
 
 ## else if
 
-Plusieurs conditionnelles peuvent être enchainées l'une après l'autre pour donner des conditions à choix mutuellement exclusif.
+Plusieurs conditionnelles peuvent être enchaînées les unes après les autres pour donner des conditions mutuellement exclusives.
 
 ~~~c
 if (x < 10) {
     printf("Plus petit que 10.");
 } else if (x < 20) {
-    printf("Plus petit que 20.");
+    printf("Plus petit que 20, mais plus grand ou égal à 10.");
 } else if (x < 30) {
-    printf("Plus petit que 30".);
+    printf("Plus petit que 30, mais plus grand ou égal à 20".);
 }
 ~~~
 
@@ -63,7 +63,7 @@ if (x < 10) {
 
 ## 
 
-La commande de préprocesseur #define permet de nommé une valeur statique qui sera représentée dans le code. L'utilisation de constante se fera avec #define. Par convention, les noms des #constantes seront en majuscules.
+La commande de préprocesseur #define permet de nommer une valeur statique qui sera représentée dans le code. L'utilisation de constante se fera avec #define. Par convention, les noms des #constantes seront en majuscules.
 
 Faire attention, les commandes de préprocesseur ne sont pas des instructions et n'ont donc pas besoin du point-virgule.
 
@@ -83,14 +83,14 @@ int main(void){
 
 
 ::: notes
-Parlez du return 0 et de EXIT_SUCCESS avec stdlib.h
+Parler du return 0 et de EXIT_SUCCESS avec stdlib.h
 :::
 
 # Opérateurs
 
 ## Opérateur logique
 
-Les opérateurs logiques opèrent sur des valeurs booléennes. Les résultats des opérations logiques seront à leurs tours de valeurs booléennes.
+Les opérateurs logiques opèrent sur des valeurs booléennes. Les résultats des opérations logiques seront à leur tour des valeurs booléennes.
 
 Opération | Opérateur | Résultat
 -----|---|----
@@ -145,7 +145,7 @@ switch (expression) {
 
 ## Instruction break
 
-Par défaut, le switch à un passe-droit (falltrough). Pour briser le cycle du switch prématurément, on peut utiliser l'instruction break.
+Par défaut, le switch a un passe-droit (falltrough). Pour briser le cycle du switch prématurément, on peut utiliser l'instruction break.
 
 ~~~c
 switch (expression) {
@@ -165,7 +165,7 @@ switch (expression) {
 ## 
 La boucle while répète les instructions jusqu'à ce que la condition soit fausse.
 
-Le while est habituellement utilisé quand on ne connait pas le nombre d'itérations à faire.
+Le while est habituellement utilisé quand on ne connaît pas le nombre d'itérations à faire.
 
 ~~~c
 while (condition) {
@@ -187,7 +187,7 @@ do {
 
 ## 
 
-La boucle for inclut une instruction d'initialisation et d'incrémentation de fin de boucle en plus de la condition habituelle. Elle est particulièrement utilisée quand on connait ou qu'il est possible de calculer le nombre d'itérations de la boucle à faire.
+La boucle for inclut une instruction d'initialisation et d'incrémentation de fin de boucle en plus de la condition habituelle. Elle est particulièrement utilisée quand on connaît ou qu'il est possible de calculer le nombre d'itérations de la boucle à faire.
 
 ~~~c
 for (init; condition; incre) {
@@ -200,3 +200,4 @@ for (i = 0; i < 10; i++){
     printf("Compteur : %d", i);
 }
 ~~~
+
