@@ -2,7 +2,9 @@
 % Hugo Leblanc
 % Cours 2
 
-## Structure de contrôle conditionnelle - if
+# Structure de contrôle conditionnelle - if
+
+## Rappel
 
 Le if nous permet d'exécuter un bloc de code sous une condition.
 
@@ -42,28 +44,30 @@ if (x < 10) {
 }
 ~~~
 
-## Présentation du code
+# Présentation du code
 
-- Commentaires
-    - En-tête
-        - Nom
-        - Description
-        - Auteur
-    - Intérieur des blocs de code
-        - Description des actions
-        - Un commentaire par action
-- Espacement
-    - Indentation horizontale
-    - Espacement vertical (saut de ligne)
-- Noms significatifs
+## Commentaires
+- En-tête
+    - Nom
+    - Description
+    - Auteur
+- Intérieur des blocs de code
+    - Description des actions
+    - Un commentaire par action
+## Espacement
+- Indentation horizontale
+- Espacement vertical (saut de ligne)
+## Noms significatifs
 
-## La commande #débine et les constantes
+# La commande #define et les constantes
 
-La commande de préprocesseur #define permet de nommé une valeur statique qui sera représentée dans le code. L'utilisation de constante se fera avec #débine. Par convention, les noms des #constantes seront en majuscules.
+## 
+
+La commande de préprocesseur #define permet de nommé une valeur statique qui sera représentée dans le code. L'utilisation de constante se fera avec #define. Par convention, les noms des #constantes seront en majuscules.
 
 Faire attention, les commandes de préprocesseur ne sont pas des instructions et n'ont donc pas besoin du point-virgule.
 
-## Exemple d'utilisation de #débine
+## Exemple d'utilisation de #define
 
 ~~~c
 #include <stdio.h>
@@ -82,9 +86,12 @@ int main(void){
 Parlez du return 0 et de EXIT_SUCCESS avec stdlib.h
 :::
 
+# Opérateurs
+
 ## Opérateur logique
 
 Les opérateurs logiques opèrent sur des valeurs booléennes. Les résultats des opérations logiques seront à leurs tours de valeurs booléennes.
+
 Opération | Opérateur | Résultat
 -----|---|----
 Conjonction ET | a && b | Vrai si a et b sont vrai.
@@ -101,14 +108,13 @@ Conjonction ET | a & b | Conjonction bit par bit.
 Disjonction OU | a \| b | Disjonction bit par bit.
 Disjonction exclusive XOR | a ^ b | Disjonction exclusive bit par bit.
 Inversion NON | ~x | Inversion bit par bit.
-Décalage binaire gauche | a << b | Décalage de b bit sur a par la gauche.
-Décalage binaire droite | a >> b | Décalage de b bit sur a par la droite.
 
 ## Opérateur d'assignation
 
 Les opérateurs d'assignation sont des raccourcis syntaxiques pour jumeler une assignation avec une opération. On ajoute l'opérateur avant l'opérateur assignation (=).
 
 Exemple d'utilisation
+
 ~~~c
 #include <stdio.h>
 
@@ -120,7 +126,9 @@ int main(void){
 }
 ~~~ 
 
-## Structure de contrôle - switch case
+# Structure de contrôle - switch case
+
+## 
 
 Le switch case travaille sur une expression et la compare à de possibles valeurs littérales.
 
@@ -152,7 +160,9 @@ switch (expression) {
 }
 ~~~
 
-## Structures itératives - while
+# Structures itératives - while
+
+## 
 La boucle while répète les instructions jusqu'à ce que la condition soit fausse.
 
 Le while est habituellement utilisé quand on ne connait pas le nombre d'itérations à faire.
@@ -173,7 +183,9 @@ do {
 } while (condition); // Faire attention au ; ici..
 ~~~
 
-## Structures itératives - for
+# Structures itératives - for
+
+## 
 
 La boucle for inclut une instruction d'initialisation et d'incrémentation de fin de boucle en plus de la condition habituelle. Elle est particulièrement utilisée quand on connait ou qu'il est possible de calculer le nombre d'itérations de la boucle à faire.
 
