@@ -54,10 +54,16 @@ if (x < 10) {
 - Intérieur des blocs de code
     - Description des actions
     - Un commentaire par action
+
 ## Espacement
+
 - Indentation horizontale
 - Espacement vertical (saut de ligne)
+
 ## Noms significatifs
+
+- Noms significatifs au contexte
+- Utilisation du tiret-bas pour l'espace
 
 # La commande #define et les constantes
 
