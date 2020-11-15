@@ -1,6 +1,10 @@
-% INF155 - Structures de contrôle
-% Hugo Leblanc
-% Cours 2
+---
+title: INF155 - Structures de contrôle
+author: Hugo Leblanc
+date: Cours 2
+pandocomatic_:
+    use-template: presentation
+---
 
 # Structure de contrôle conditionnelle - if
 

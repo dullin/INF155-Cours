@@ -1,0 +1,343 @@
+\hypertarget{structure-de-contruxf4le-conditionnelle---if}{%
+\section{Structure de contrôle conditionnelle -
+if}\label{structure-de-contruxf4le-conditionnelle---if}}
+
+\begin{frame}[fragile]{Rappel}
+\protect\hypertarget{rappel}{}
+
+Le if nous permet d'exécuter un bloc de code sous une condition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (condition) \{}
+    \CommentTok{//Instruction}
+\NormalTok{\}}
+\CommentTok{// Exemple}
+\ControlFlowTok{if}\NormalTok{ (x > }\DecValTok{4}\NormalTok{) \{}
+\NormalTok{    printf(}\StringTok{"Dans le if!"}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{else}
+\protect\hypertarget{else}{}
+
+L'ajout du else nous donne accès à des instructions alternatives si la
+condition n'est pas respectée.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (x > }\DecValTok{4}\NormalTok{) \{}
+\NormalTok{    printf(}\StringTok{"Dans le if!"}\NormalTok{);}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    printf(}\StringTok{"Dans le else!"}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{else if}
+\protect\hypertarget{else-if}{}
+
+Plusieurs conditionnelles peuvent être enchaînées les unes après les
+autres pour donner des conditions mutuellement exclusives.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (x < }\DecValTok{10}\NormalTok{) \{}
+\NormalTok{    printf(}\StringTok{"Plus petit que 10."}\NormalTok{);}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (x < }\DecValTok{20}\NormalTok{) \{}
+\NormalTok{    printf(}\StringTok{"Plus petit que 20, mais plus grand ou égal à 10."}\NormalTok{);}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (x < }\DecValTok{30}\NormalTok{) \{}
+\NormalTok{    printf(}\StringTok{"Plus petit que 30, mais plus grand ou égal à 20"}\NormalTok{.);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\hypertarget{pruxe9sentation-du-code}{%
+\section{Présentation du code}\label{pruxe9sentation-du-code}}
+
+\begin{frame}{Commentaires}
+\protect\hypertarget{commentaires}{}
+
+\begin{itemize}
+\tightlist
+\item
+  En-tête
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nom
+  \item
+    Description
+  \item
+    Auteur
+  \end{itemize}
+\item
+  Intérieur des blocs de code
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Description des actions
+  \item
+    Un commentaire par action
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Espacement}
+\protect\hypertarget{espacement}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Indentation horizontale
+\item
+  Espacement vertical (saut de ligne)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Noms significatifs}
+\protect\hypertarget{noms-significatifs}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Noms significatifs au contexte
+\item
+  Utilisation du tiret-bas pour l'espace
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{la-commande-define-et-les-constantes}{%
+\section{La commande \#define et les
+constantes}\label{la-commande-define-et-les-constantes}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+
+La commande de préprocesseur \#define permet de nommer une valeur
+statique qui sera représentée dans le code. L'utilisation de constante
+se fera avec \#define. Par convention, les noms des \#constantes seront
+en majuscules.
+
+Faire attention, les commandes de préprocesseur ne sont pas des
+instructions et n'ont donc pas besoin du point-virgule.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemple d'utilisation de \#define}
+\protect\hypertarget{exemple-dutilisation-de-define}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{#include }\ImportTok{<stdio.h>}
+
+\PreprocessorTok{#define MA_CONSTANTE 56}
+
+\DataTypeTok{int}\NormalTok{ main(}\DataTypeTok{void}\NormalTok{)\{}
+\NormalTok{    printf('La constante est : %d', MA_CONSTANTE);}
+
+    \ControlFlowTok{return} \DecValTok{0}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\note{Parler du return 0 et de EXIT\_SUCCESS avec stdlib.h}
+
+\end{frame}
+
+\hypertarget{opuxe9rateurs}{%
+\section{Opérateurs}\label{opuxe9rateurs}}
+
+\begin{frame}{Opérateur logique}
+\protect\hypertarget{opuxe9rateur-logique}{}
+
+Les opérateurs logiques opèrent sur des valeurs booléennes. Les
+résultats des opérations logiques seront à leur tour des valeurs
+booléennes.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Opération & Opérateur & Résultat\tabularnewline
+\midrule
+\endhead
+Conjonction ET & a \&\& b & Vrai si a et b sont vrai.\tabularnewline
+Disjonction OU & a \textbar{}\textbar{} b & Vrai si a ou b sont
+vrai.\tabularnewline
+Négation NON & !a & Inverse de a.\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}{Opérateur binaire}
+\protect\hypertarget{opuxe9rateur-binaire}{}
+
+Les opérateurs binaires opèrent sur les données binaires des valeurs.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Opération & Opérateur & Résultat\tabularnewline
+\midrule
+\endhead
+Conjonction ET & a \& b & Conjonction bit par bit.\tabularnewline
+Disjonction OU & a \textbar{} b & Disjonction bit par
+bit.\tabularnewline
+Disjonction exclusive XOR & a \^{} b & Disjonction exclusive bit par
+bit.\tabularnewline
+Inversion NON & \textasciitilde{}x & Inversion bit par
+bit.\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}[fragile]{Opérateur d'assignation}
+\protect\hypertarget{opuxe9rateur-dassignation}{}
+
+Les opérateurs d'assignation sont des raccourcis syntaxiques pour
+jumeler une assignation avec une opération. On ajoute l'opérateur avant
+l'opérateur assignation (=).
+
+Exemple d'utilisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{#include }\ImportTok{<stdio.h>}
+
+\DataTypeTok{int}\NormalTok{ main(}\DataTypeTok{void}\NormalTok{)\{}
+    \DataTypeTok{int}\NormalTok{ x = }\DecValTok{5}\NormalTok{;}
+\NormalTok{    x += }\DecValTok{10}\NormalTok{;}
+\NormalTok{    x <<= }\DecValTok{2}\NormalTok{;}
+\NormalTok{    printf(}\StringTok{"La valeur de x est : %d"}\NormalTok{, x);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\hypertarget{structure-de-contruxf4le---switch-case}{%
+\section{Structure de contrôle - switch
+case}\label{structure-de-contruxf4le---switch-case}}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-1}{}
+
+Le switch case travaille sur une expression et la compare à de possibles
+valeurs littérales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{switch}\NormalTok{ (expression) \{}
+    \ControlFlowTok{case}\NormalTok{ cas1:}
+        \CommentTok{// Instructions 1}
+    \ControlFlowTok{case}\NormalTok{ cas2:}
+        \CommentTok{// Instructions 2}
+    \ControlFlowTok{default}\NormalTok{:}
+        \CommentTok{// Le "else" du switch}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Instruction break}
+\protect\hypertarget{instruction-break}{}
+
+Par défaut, le switch a un passe-droit (falltrough). Pour briser le
+cycle du switch prématurément, on peut utiliser l'instruction break.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{switch}\NormalTok{ (expression) \{}
+    \ControlFlowTok{case}\NormalTok{ cas1:}
+        \CommentTok{// Instructions 1}
+        \ControlFlowTok{break}\NormalTok{;}
+    \ControlFlowTok{case}\NormalTok{ cas2:}
+        \CommentTok{// Instructions 2}
+        \ControlFlowTok{break}\NormalTok{;}
+    \ControlFlowTok{default}\NormalTok{:}
+        \CommentTok{// Le "else" du switch}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\hypertarget{structures-ituxe9ratives---while}{%
+\section{Structures itératives -
+while}\label{structures-ituxe9ratives---while}}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-2}{}
+
+La boucle while répète les instructions jusqu'à ce que la condition soit
+fausse.
+
+Le while est habituellement utilisé quand on ne connaît pas le nombre
+d'itérations à faire.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{while}\NormalTok{ (condition) \{}
+    \CommentTok{// Instructions}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{do while}
+\protect\hypertarget{do-while}{}
+
+Le do while oblige d'avoir une première itération de la boucle, mais
+fonctionne autrement comme le while.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{do}\NormalTok{ \{}
+\NormalTok{    / Instructions}
+\NormalTok{\} }\ControlFlowTok{while}\NormalTok{ (condition); }\CommentTok{// Faire attention au ; ici..}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\hypertarget{structures-ituxe9ratives---for}{%
+\section{Structures itératives -
+for}\label{structures-ituxe9ratives---for}}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-3}{}
+
+La boucle for inclut une instruction d'initialisation et
+d'incrémentation de fin de boucle en plus de la condition habituelle.
+Elle est particulièrement utilisée quand on connaît ou qu'il est
+possible de calculer le nombre d'itérations de la boucle à faire.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (init; condition; incre) \{}
+    \CommentTok{// Instructions}
+\NormalTok{\}}
+
+\CommentTok{// Exemple}
+\DataTypeTok{int}\NormalTok{ i;}
+\ControlFlowTok{for}\NormalTok{ (i = }\DecValTok{0}\NormalTok{; i < }\DecValTok{10}\NormalTok{; i++)\{}
+\NormalTok{    printf(}\StringTok{"Compteur : %d"}\NormalTok{, i);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}

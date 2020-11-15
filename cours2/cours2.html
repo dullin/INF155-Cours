@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Hugo Leblanc">
+  <title>INF155 - Structures de contrôle</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">INF155 - Structures de contrôle</h1>
+  <p class="author">Hugo Leblanc</p>
+  <p class="date">Cours 2</p>
+</section>
+
+<section><section id="structure-de-contrôle-conditionnelle---if" class="title-slide slide level1"><h1>Structure de contrôle conditionnelle - if</h1></section><section id="rappel" class="slide level2">
+<h2>Rappel</h2>
+<p>Le if nous permet d’exécuter un bloc de code sous une condition.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (condition) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">//Instruction</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">// Exemple</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="cf">if</span> (x &gt; <span class="dv">4</span>) {</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    printf(<span class="st">&quot;Dans le if!&quot;</span>);</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></pre></div>
+</section><section id="else" class="slide level2">
+<h2>else</h2>
+<p>L’ajout du else nous donne accès à des instructions alternatives si la condition n’est pas respectée.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span> (x &gt; <span class="dv">4</span>) {</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    printf(<span class="st">&quot;Dans le if!&quot;</span>);</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    printf(<span class="st">&quot;Dans le else!&quot;</span>);</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">}</a></code></pre></div>
+</section><section id="else-if" class="slide level2">
+<h2>else if</h2>
+<p>Plusieurs conditionnelles peuvent être enchaînées les unes après les autres pour donner des conditions mutuellement exclusives.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> (x &lt; <span class="dv">10</span>) {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    printf(<span class="st">&quot;Plus petit que 10.&quot;</span>);</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">} <span class="cf">else</span> <span class="cf">if</span> (x &lt; <span class="dv">20</span>) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    printf(<span class="st">&quot;Plus petit que 20, mais plus grand ou égal à 10.&quot;</span>);</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">} <span class="cf">else</span> <span class="cf">if</span> (x &lt; <span class="dv">30</span>) {</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    printf(<span class="st">&quot;Plus petit que 30, mais plus grand ou égal à 20&quot;</span>.);</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">}</a></code></pre></div>
+</section></section>
+<section><section id="présentation-du-code" class="title-slide slide level1"><h1>Présentation du code</h1></section><section id="commentaires" class="slide level2">
+<h2>Commentaires</h2>
+<ul>
+<li>En-tête
+<ul>
+<li>Nom</li>
+<li>Description</li>
+<li>Auteur</li>
+</ul></li>
+<li>Intérieur des blocs de code
+<ul>
+<li>Description des actions</li>
+<li>Un commentaire par action</li>
+</ul></li>
+</ul>
+</section><section id="espacement" class="slide level2">
+<h2>Espacement</h2>
+<ul>
+<li>Indentation horizontale</li>
+<li>Espacement vertical (saut de ligne)</li>
+</ul>
+</section><section id="noms-significatifs" class="slide level2">
+<h2>Noms significatifs</h2>
+<ul>
+<li>Noms significatifs au contexte</li>
+<li>Utilisation du tiret-bas pour l’espace</li>
+</ul>
+</section></section>
+<section><section id="la-commande-define-et-les-constantes" class="title-slide slide level1"><h1>La commande #define et les constantes</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<p>La commande de préprocesseur #define permet de nommer une valeur statique qui sera représentée dans le code. L’utilisation de constante se fera avec #define. Par convention, les noms des #constantes seront en majuscules.</p>
+<p>Faire attention, les commandes de préprocesseur ne sont pas des instructions et n’ont donc pas besoin du point-virgule.</p>
+</section><section id="exemple-dutilisation-de-define" class="slide level2">
+<h2>Exemple d’utilisation de #define</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="pp">#define MA_CONSTANTE 56</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="dt">int</span> main(<span class="dt">void</span>){</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    printf(&#39;La constante est : %d&#39;, MA_CONSTANTE);</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">}</a></code></pre></div>
+<aside class="notes">
+<p>Parler du return 0 et de EXIT_SUCCESS avec stdlib.h</p>
+</aside>
+</section></section>
+<section><section id="opérateurs" class="title-slide slide level1"><h1>Opérateurs</h1></section><section id="opérateur-logique" class="slide level2">
+<h2>Opérateur logique</h2>
+<p>Les opérateurs logiques opèrent sur des valeurs booléennes. Les résultats des opérations logiques seront à leur tour des valeurs booléennes.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Opération</th>
+<th>Opérateur</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Conjonction ET</td>
+<td>a &amp;&amp; b</td>
+<td>Vrai si a et b sont vrai.</td>
+</tr>
+<tr class="even">
+<td>Disjonction OU</td>
+<td>a || b</td>
+<td>Vrai si a ou b sont vrai.</td>
+</tr>
+<tr class="odd">
+<td>Négation NON</td>
+<td>!a</td>
+<td>Inverse de a.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="opérateur-binaire" class="slide level2">
+<h2>Opérateur binaire</h2>
+<p>Les opérateurs binaires opèrent sur les données binaires des valeurs.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Opération</th>
+<th>Opérateur</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Conjonction ET</td>
+<td>a &amp; b</td>
+<td>Conjonction bit par bit.</td>
+</tr>
+<tr class="even">
+<td>Disjonction OU</td>
+<td>a | b</td>
+<td>Disjonction bit par bit.</td>
+</tr>
+<tr class="odd">
+<td>Disjonction exclusive XOR</td>
+<td>a ^ b</td>
+<td>Disjonction exclusive bit par bit.</td>
+</tr>
+<tr class="even">
+<td>Inversion NON</td>
+<td>~x</td>
+<td>Inversion bit par bit.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="opérateur-dassignation" class="slide level2">
+<h2>Opérateur d’assignation</h2>
+<p>Les opérateurs d’assignation sont des raccourcis syntaxiques pour jumeler une assignation avec une opération. On ajoute l’opérateur avant l’opérateur assignation (=).</p>
+<p>Exemple d’utilisation</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="dt">int</span> main(<span class="dt">void</span>){</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">int</span> x = <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    x += <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    x &lt;&lt;= <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    printf(<span class="st">&quot;La valeur de x est : %d&quot;</span>, x);</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">}</a></code></pre></div>
+</section></section>
+<section><section id="structure-de-contrôle---switch-case" class="title-slide slide level1"><h1>Structure de contrôle - switch case</h1></section><section id="section-1" class="slide level2">
+<h2></h2>
+<p>Le switch case travaille sur une expression et la compare à de possibles valeurs littérales.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="cf">switch</span> (expression) {</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="cf">case</span> cas1:</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">        <span class="co">// Instructions 1</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="cf">case</span> cas2:</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">        <span class="co">// Instructions 2</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="cf">default</span>:</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">        <span class="co">// Le &quot;else&quot; du switch</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">}</a></code></pre></div>
+</section><section id="instruction-break" class="slide level2">
+<h2>Instruction break</h2>
+<p>Par défaut, le switch a un passe-droit (falltrough). Pour briser le cycle du switch prématurément, on peut utiliser l’instruction break.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="cf">switch</span> (expression) {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="cf">case</span> cas1:</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">        <span class="co">// Instructions 1</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="cf">case</span> cas2:</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">        <span class="co">// Instructions 2</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="cf">default</span>:</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">        <span class="co">// Le &quot;else&quot; du switch</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">}</a></code></pre></div>
+</section></section>
+<section><section id="structures-itératives---while" class="title-slide slide level1"><h1>Structures itératives - while</h1></section><section id="section-2" class="slide level2">
+<h2></h2>
+<p>La boucle while répète les instructions jusqu’à ce que la condition soit fausse.</p>
+<p>Le while est habituellement utilisé quand on ne connaît pas le nombre d’itérations à faire.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="cf">while</span> (condition) {</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="co">// Instructions</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">}</a></code></pre></div>
+</section><section id="do-while" class="slide level2">
+<h2>do while</h2>
+<p>Le do while oblige d’avoir une première itération de la boucle, mais fonctionne autrement comme le while.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="cf">do</span> {</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">    / Instructions</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">} <span class="cf">while</span> (condition); <span class="co">// Faire attention au ; ici..</span></a></code></pre></div>
+</section></section>
+<section><section id="structures-itératives---for" class="title-slide slide level1"><h1>Structures itératives - for</h1></section><section id="section-3" class="slide level2">
+<h2></h2>
+<p>La boucle for inclut une instruction d’initialisation et d’incrémentation de fin de boucle en plus de la condition habituelle. Elle est particulièrement utilisée quand on connaît ou qu’il est possible de calculer le nombre d’itérations de la boucle à faire.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="cf">for</span> (init; condition; incre) {</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">    <span class="co">// Instructions</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">// Exemple</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="dt">int</span> i;</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; i++){</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">    printf(<span class="st">&quot;Compteur : %d&quot;</span>, i);</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">}</a></code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

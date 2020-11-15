@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Hugo Leblanc">
+  <title>INF155 - Les tableaux</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">INF155 - Les tableaux</h1>
+  <p class="author">Hugo Leblanc</p>
+  <p class="date">Cours 6</p>
+</section>
+
+<section><section id="tableaux" class="title-slide slide level1"><h1>Tableaux</h1></section><section id="présentation-du-concept" class="slide level2">
+<h2>Présentation du concept</h2>
+<ul>
+<li><p>Les tableaux sont des collections de plusieurs valeurs du même type sous un seul identificateur.</p></li>
+<li><p>Les tableaux nous permettent de travailler avec de grands échantillons de données.</p></li>
+<li><p>Pour commencer, nous allons voir seulement les tableaux de tailles statiques. Il existe aussi des tableaux dynamiques.</p></li>
+</ul>
+</section><section id="les-cases-dun-tableau" class="slide level2">
+<h2>Les cases d’un tableau</h2>
+<ul>
+<li><p>Pour distinguer les différentes valeurs à l’intérieur d’un tableau. On utilise un indice qui numérote les cases du tableau.</p></li>
+<li><p>L’indice commence toujours à 0. Un tableau de cases aura donc des indices de 0 à 4.</p></li>
+</ul>
+</section><section id="déclaration-dun-tableau" class="slide level2">
+<h2>Déclaration d’un tableau</h2>
+<ul>
+<li><p>Les tableaux sont une extension des variables de bases et se déclarent similairement.</p></li>
+<li><p>On ajoute à une déclaration de variables une taille pour indiquer la déclaration d’un tableau et ça taille.</p></li>
+<li><p>Nous utiliserons souvent des constantes pour la taille des tableaux.</p></li>
+<li><p>Les compilateurs modernes supportent les tableaux statiques de tailles variables. Nous allons nous concentrer sur des tailles fixes jusqu’aux tableaux dynamiques.</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">int</span> notes[<span class="dv">8</span>]; <span class="co">//Déclaration d&#39;un tableau de 8 cases.</span></a></code></pre></div>
+</section><section id="initialisation-des-valeurs" class="slide level2">
+<h2>Initialisation des valeurs</h2>
+<ul>
+<li><p>On peut fournir des valeurs initiales à la déclaration d’un tableau.</p></li>
+<li><p>L’assignation de plusieurs valeurs en même temps se fait seulement à la déclaration et est impossible autrement.</p></li>
+<li><p>On encapsule les assignations entre accolades et elles seront assignées en ordre à partir de la première case.</p></li>
+<li><p>Les cases restantes sont initialisées à 0.</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Les cases 0, 1 et 2 reçoivent les valeurs</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">// 23, 65 et 2. La quatrième case est mise à 0.</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="dt">int</span> tab[<span class="dv">4</span>] = {<span class="dv">23</span>, <span class="dv">65</span>, <span class="dv">2</span>};</a></code></pre></div>
+</section><section id="accès-aux-valeurs-du-tableau" class="slide level2">
+<h2>Accès aux valeurs du tableau</h2>
+<ul>
+<li><p>L’accès aux valeurs du tableau se fait avec les braquettes carrées.</p></li>
+<li><p>On peut utiliser l’accès pour la lecture comme l’assignation.</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="dt">int</span> tab[<span class="dv">4</span>] = <span class="dv">34</span>;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">printf(<span class="st">&quot;%d&quot;</span>, tab[<span class="dv">4</span>]); <span class="co">// Affiche 34.</span></a></code></pre></div>
+</section><section id="exercice" class="slide level2">
+<h2>Exercice</h2>
+<ul>
+<li>Écrivez un programme qui déclare un tableau de 100 cases et assigne les 100 premiers termes de la suite de Fibonacci. La suite de Fibonacci se défini de la manière suivante:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" data-line-number="1">fibonacci[<span class="dv">0</span>] = <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">fibonacci[<span class="dv">1</span>] = <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">fibonacci[n] = fibonacci[n - <span class="dv">2</span>] + fibonacci[n - <span class="dv">1</span>]</a></code></pre></div>
+</section></section>
+<section><section id="fonctions-et-tableau" class="title-slide slide level1"><h1>Fonctions et tableau</h1></section><section id="tableau-en-paramètres-dentrées" class="slide level2">
+<h2>Tableau en paramètres d’entrées</h2>
+<ul>
+<li><p>On peut envoyer un tableau comme paramètre d’entrée d’une fonction. On indique un tableau avec ses braquettes carrées.</p></li>
+<li><p>La fonction est incapable de déterminer la taille du tableau. Par convention, on utilise habituellement un deuxième paramètre pour indiquer la taille du tableau.</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="dt">int</span> fonction_tab(<span class="dt">int</span> tableau[], <span class="dt">int</span> nb_elements);</a></code></pre></div>
+</section><section id="les-tableaux-sont-passés-par-référence" class="slide level2">
+<h2>Les tableaux sont passés par référence</h2>
+<ul>
+<li><p>Contrairement aux variables, les tableaux sont toujours passés par référence.</p></li>
+<li><p>La modification d’un tableau dans une fonction est donc permanente même après l’appel de la fonction.</p></li>
+<li><p>Les tableaux sont en fait des pointeurs cachés par une syntaxe spéciale.</p></li>
+</ul>
+</section></section>
+<section><section id="structures-de-données" class="title-slide slide level1"><h1>Structures de données</h1></section><section id="description" class="slide level2">
+<h2>Description</h2>
+<ul>
+<li><p>Il existe plusieurs manières d’utiliser les tableaux pour regrouper des valeurs.</p></li>
+<li><p>Certaines manières sont très communes et sont régies par des conventions spécifiques.</p></li>
+<li><p>Nous allons voir une structure de données et ses conventions: les piles.</p></li>
+</ul>
+</section><section id="piles" class="slide level2">
+<h2>Piles</h2>
+<ul>
+<li><p>Le principe est d’empiler des données et de les récupérer à partir du haut de la pile.</p></li>
+<li><p>Le type de pile est LIFO (Last In, First Out).</p></li>
+<li><p>Les piles sont utilisées pour les applications qui doivent ce souvenir des états précédents.</p></li>
+</ul>
+</section><section id="structure-de-la-pile" class="slide level2">
+<h2>Structure de la pile</h2>
+<ul>
+<li>Par convention, les piles contiennent 3 informations:
+<ul>
+<li>La première case contient la taille maximale du tableau.</li>
+<li>La deuxième case contient un compteur qui pointe sur la tête de la pile.</li>
+<li>Les restes des cases sont utilisés pour stocker les informations de la pile.</li>
+</ul></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
